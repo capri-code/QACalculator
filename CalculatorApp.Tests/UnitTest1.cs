@@ -45,7 +45,7 @@ namespace CalculatorApp.Tests
         [Fact]
         public void Divide_DivisionByZero_ThrowsDivideByZeroException()
         {
-            int a = 0, b = 2;
+            int a = 10, b = 2;
             double result = _calculator.Divide(a, b);
 
             if (b == 0)
@@ -54,7 +54,7 @@ namespace CalculatorApp.Tests
             }
             else
             {
-                NUnit.Framework.Assert.AreEqual(0, result);
+                NUnit.Framework.Assert.AreEqual(5, result);
             }
         }
     }
