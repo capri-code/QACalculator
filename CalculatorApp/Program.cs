@@ -11,21 +11,17 @@
 
             try
             {
-                // Read first number
                 Console.Write("Enter the first number: ");
                 int num1 = Convert.ToInt32(Console.ReadLine());
 
-                // Read second number
                 Console.Write("Enter the second number: ");
                 int num2 = Convert.ToInt32(Console.ReadLine());
 
-                // Read operation
                 Console.Write("Enter the operation (Add, Subtract, Multiply, Divide): ");
                 string operation = Console.ReadLine()?.ToLower();
 
                 double result = 0;
 
-                // Perform the selected operation
                 switch (operation)
                 {
                     case "add":
