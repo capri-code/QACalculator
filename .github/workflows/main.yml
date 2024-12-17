@@ -1,0 +1,38 @@
+name: CI Pipeline - Run Tests
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up .NET Core SDK
+      - name: Set Up .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x' # Adjust to your .NET version
+
+      # Step 3: Restore dependencies
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      # Step 4: Build the project
+      - name: Build Project
+        run: dotnet build --configuration Release --no-restore
+
+      # Step 5: Run Unit Tests
+      - name: Run Tests
+        run: dotnet test --no-build --verbosity normal
+
+      # Step 6: Report Failure (Optional)
+      - name: Check Test Results
+        if: failure()
+        run: echo "Some tests have failed. Fix them before merging into master!"
