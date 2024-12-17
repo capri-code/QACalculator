@@ -18,7 +18,7 @@ jobs:
       - name: Set Up .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x' # Adjust to your .NET version
+          dotnet-version: '8.0.0'
 
       # Step 3: Restore dependencies
       - name: Restore Dependencies
@@ -30,7 +30,7 @@ jobs:
 
       # Step 5: Run Unit Tests
       - name: Run Tests
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test
 
       # Step 6: Report Failure (Optional)
       - name: Check Test Results
